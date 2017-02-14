@@ -1,0 +1,229 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-02-28 20:05+0100\n"
+"PO-Revision-Date: 2017-02-14 21:24+0200\n"
+"Last-Translator: Dimitrij <Dima-73@inbox.lv>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+"X-Generator: Poedit 1.8.9\n"
+"Language-Team: \n"
+
+msgid ""
+"\n"
+"CPU temperature: "
+msgstr ""
+"\n"
+"Температура CPU: "
+
+msgid ""
+"\n"
+"System temperature: "
+msgstr ""
+"\n"
+"Температура системы: "
+
+msgid "'On' mode when BCM silicon max temp (0-disabled)"
+msgstr "Режим 'Вкл.' при макс-темп кремния BCM (0-откл.)"
+
+msgid "'On' mode when HDD/SSD max temp (0-disabled)"
+msgstr "Режим 'Вкл.' при макс-темп HDD/SSD (0-отключено)"
+
+msgid "'On' mode when System max temp (0-disabled)"
+msgstr "Режим 'Вкл.' при макс-темп системы (0-отключено)"
+
+msgid "All"
+msgstr "Все"
+
+msgid "Alternative mode for period time"
+msgstr "Альтернативный режим для периода времени"
+
+msgid "Auto"
+msgstr "Авто"
+
+msgid "CPU silicon temperature"
+msgstr "Температура кремния CPU"
+
+msgid "CPU temperature: "
+msgstr "Температура CPU: "
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Checking interval mode in seconds"
+msgstr "Интервал проверки режима в секундах"
+
+msgid "Current speed: "
+msgstr "Текущая скорость: "
+
+msgid "Drive is sleeping\n"
+msgstr "Диск в режиме ожидания\n"
+
+msgid "ERROR\n"
+msgstr "ОШИБКА\n"
+
+msgid "End time"
+msgstr "Время окончания режима"
+
+msgid "Equal"
+msgstr "Одинаково"
+
+msgid "Fan mode"
+msgstr "Режимы вентилятора"
+
+msgid "Fan speed"
+msgstr "Скорость вентилятора"
+
+msgid "Found internal HDD/SSD!\n"
+msgstr "Найден внутренний HDD/SSD!\n"
+
+msgid "HDD/SSD sleeping"
+msgstr "Спящий режим HDD/SSD"
+
+msgid "HDD/SSD temperature"
+msgstr "Температура HDD/SSD"
+
+msgid "HDDtemp not installed!"
+msgstr "HDDtemp не установлен!"
+
+msgid ""
+"Harddisk setup 'Standby after' disabled\n"
+"You may not use this mode!"
+msgstr ""
+"Настройка жесткого диска 'Режим ожидания через' отключена.\n"
+"Вы не можете использовать этот режим!"
+
+msgid "HddTempWatcher not running!"
+msgstr "HddTempWatcher не запущен!"
+
+msgid "None"
+msgstr "Нет"
+
+msgid ""
+"Not found an internal HDD/SSD!\n"
+"\n"
+msgstr ""
+"Не найден ни один внутренний HDD/SSD!\n"
+"\n"
+
+msgid "Off"
+msgstr "Выкл."
+
+msgid "On"
+msgstr "Вкл."
+
+msgid "Other"
+msgstr "Другая"
+
+msgid "Period time for alternative speed"
+msgstr "Период времени для альтернативной скорости"
+
+msgid "Power status"
+msgstr "Статус питания"
+
+msgid "Select internal HDD/SSD device"
+msgstr "Выбор внутреннего HDD/SSD"
+
+msgid "Speed"
+msgstr "Скорость"
+
+msgid "Speed in standby"
+msgstr "Скорость в режиме ожидания"
+
+msgid "Start time"
+msgstr "Время начала режима"
+
+msgid ""
+"Start time equal end time.\n"
+"You may not use this time settings!"
+msgstr ""
+"Время начала совпадает с временем окончания.\n"
+"Вы не можете использовать такую настройку времени!"
+
+msgid "System temperature"
+msgstr "Температура системы"
+
+msgid "System temperature: "
+msgstr "Температура системы: "
+
+msgid "Try adding your internal HDD in '/etc/hddtemp.db' manually."
+msgstr "Добавьте ваш внутренний HDD в '/etc/hddtemp.db' в ручную."
+
+msgid "Use alternative fan speed"
+msgstr "Использовать альтернативную скорость вентилятора"
+
+msgid "Watch HDD/SSD state"
+msgstr "Проверка состояния HDD/SSD"
+
+msgid "Watch board temp"
+msgstr "Проверка температуры ресивера"
+
+msgid ""
+"You may not use this mode!\n"
+"Not found an internal hard drive!"
+msgstr ""
+"Вы не можете использовать этот режим!\n"
+"Не найден ни один внутренний жесткий диск!"
+
+msgid "temp: "
+msgstr "температура: "
+
+msgid "unknown\n"
+msgstr "неизвестно\n"
+
+#: plugin.py:233
+msgid " - version: "
+msgstr " - версия: "
+
+#: plugin.py:547
+msgid " pwm"
+msgstr " pwm"
+
+#: plugin.py:386
+msgid "'Off' mode when HDD/SSD sleep"
+msgstr "Режим 'Выкл.' при HDD/SSD в режиме ожидания"
+
+#: plugin.py:233
+msgid "Extra fan control"
+msgstr "Экстра контроль вентилятора"
+
+#: plugin.py:88
+msgid "Fan - off in standby"
+msgstr "Вент. - 'Выкл.' в режиме ожиданния"
+
+#: plugin.py:246
+msgid "Save/OK"
+msgstr "Сохранить/ОК"
+
+#: plugin.py:346 plugin.py:833
+msgid "Show HDD/SSD temp"
+msgstr "Показать температуру HDD/SSD"
+
+#: plugin.py:405
+msgid "Show HDD/SSD temp in extensions menu"
+msgstr "Показать HDD/SSD в меню дополнений"
+
+#: plugin.py:776
+msgid "Try adding your internal HDD/SSD in '/usr/share/misc/hddtemp.db' manually (for SSD use 190 value)."
+msgstr "Добавьте Ваш внутренний HDD/SSD в '/usr/share/misc/hddtemp.db' в ручную (для SSD используйте значение 190)."
+
+msgid "Use 'HddTempWatcher'"
+msgstr "Использовать 'HddTempWatcher'"
+
+msgid "hddtemp -all"
+msgstr "hddtemp -все"
+
+msgid "hddtemp -all and wake up"
+msgstr "hddtemp -все и разбудить"
+
+msgid "Checking interval 'HddTempWatcher' in seconds"
+msgstr "Интервал проверки 'HddTempWatcher' в секундах"
+
+msgid "Use mode 'Auto' from image"
+msgstr "Использовать режим 'Авто' из имиджа"
+
+msgid "'Auto' mode - off in standby (exception recording)"
+msgstr "'Авто' - выкл. в режиме ожидания (исключение запись)"

@@ -1,0 +1,273 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 1970-01-01 02:00+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: plugin.py:892
+msgid ""
+"\n"
+"CPU temperature: "
+msgstr ""
+
+#: plugin.py:888
+msgid ""
+"\n"
+"System temperature: "
+msgstr ""
+
+#: plugin.py:268
+msgid " - version: "
+msgstr ""
+
+#: plugin.py:607
+msgid " pwm"
+msgstr ""
+
+#: plugin.py:405
+msgid "'Auto' mode - off in standby (exception recording)"
+msgstr ""
+
+#: plugin.py:429
+msgid "'Off' mode when HDD/SSD sleep"
+msgstr ""
+
+#: plugin.py:436
+msgid "'On' mode when BCM silicon max temp (0-disabled)"
+msgstr ""
+
+#: plugin.py:427
+msgid "'On' mode when HDD/SSD max temp (0-disabled)"
+msgstr ""
+
+#: plugin.py:434
+msgid "'On' mode when system max temp (0-disabled)"
+msgstr ""
+
+#: plugin.py:387
+msgid "All"
+msgstr ""
+
+#: plugin.py:377
+msgid "Alternative mode for period time"
+msgstr ""
+
+#: plugin.py:122 plugin.py:130
+msgid "Auto"
+msgstr ""
+
+#: plugin.py:166 plugin.py:171
+msgid "CPU silicon temperature"
+msgstr ""
+
+#: plugin.py:344
+msgid "CPU temperature: "
+msgstr ""
+
+#: plugin.py:282
+msgid "Cancel"
+msgstr ""
+
+#: plugin.py:380
+msgid "Checking interval 'HddTempWatcher' in seconds"
+msgstr ""
+
+#: plugin.py:379
+msgid "Checking interval mode in seconds"
+msgstr ""
+
+#: plugin.py:348 plugin.py:472
+msgid "Current speed: "
+msgstr ""
+
+#: plugin.py:868
+msgid "Drive is sleeping\n"
+msgstr ""
+
+#: plugin.py:870 plugin.py:882
+msgid "ERROR\n"
+msgstr ""
+
+#: plugin.py:416 plugin.py:442
+msgid "End time"
+msgstr ""
+
+#: plugin.py:132
+msgid "Equal"
+msgstr ""
+
+#: plugin.py:268 plugin.py:943
+msgid "Extra fan control"
+msgstr ""
+
+#: plugin.py:123
+msgid "Fan - off in standby"
+msgstr ""
+
+#: plugin.py:375
+msgid "Fan mode"
+msgstr ""
+
+#: plugin.py:392
+msgid "Fan speed"
+msgstr ""
+
+#: plugin.py:884 plugin.py:924
+msgid "Found internal HDD/SSD!\n"
+msgstr ""
+
+#: plugin.py:129
+msgid "HDD/SSD sleeping"
+msgstr ""
+
+#: plugin.py:129 plugin.py:386
+msgid "HDD/SSD temperature"
+msgstr ""
+
+#: plugin.py:449 plugin.py:852 plugin.py:911
+msgid "HDDtemp not installed!"
+msgstr ""
+
+#: plugin.py:537
+msgid ""
+"Harddisk setup 'Standby after' disabled\n"
+"You may not use this mode!"
+msgstr ""
+
+#: plugin.py:854
+msgid "HddTempWatcher not running!"
+msgstr ""
+
+#: plugin.py:128 plugin.py:129 plugin.py:130 plugin.py:142 plugin.py:157
+#: plugin.py:166 plugin.py:171
+msgid "None"
+msgstr ""
+
+#: plugin.py:880 plugin.py:927
+msgid ""
+"Not found an internal HDD/SSD!\n"
+"\n"
+msgstr ""
+
+#: plugin.py:116 plugin.py:130
+msgid "Off"
+msgstr ""
+
+#: plugin.py:116 plugin.py:130
+msgid "On"
+msgstr ""
+
+#: plugin.py:132
+msgid "Other"
+msgstr ""
+
+#: plugin.py:394
+msgid "Period time for alternative speed"
+msgstr ""
+
+#: plugin.py:280 plugin.py:332
+msgid "Power status"
+msgstr ""
+
+#: plugin.py:281
+msgid "Save/OK"
+msgstr ""
+
+#: plugin.py:390
+msgid "Select internal HDD/SSD device"
+msgstr ""
+
+#: plugin.py:951 plugin.py:954
+msgid "Show HDD/SSD temp"
+msgstr ""
+
+#: plugin.py:398
+msgid "Show HDD/SSD temp in extensions menu"
+msgstr ""
+
+#: plugin.py:395 plugin.py:397
+msgid "Speed"
+msgstr ""
+
+#: plugin.py:396
+msgid "Speed in standby"
+msgstr ""
+
+#: plugin.py:415 plugin.py:441
+msgid "Start time"
+msgstr ""
+
+#: plugin.py:532 plugin.py:545
+msgid ""
+"Start time equal end time.\n"
+"You may not use this time settings!"
+msgstr ""
+
+#: plugin.py:157 plugin.py:171
+msgid "System temperature"
+msgstr ""
+
+#: plugin.py:340
+msgid "System temperature: "
+msgstr ""
+
+#: plugin.py:863
+msgid ""
+"Try adding your internal HDD/SSD in '/usr/share/misc/hddtemp.db' manually "
+"(for SSD use 190 value)."
+msgstr ""
+
+#: plugin.py:582
+msgid "Use 'HddTempWatcher'"
+msgstr ""
+
+#: plugin.py:393
+msgid "Use alternative fan speed"
+msgstr ""
+
+#: plugin.py:376
+msgid "Use mode 'Auto' from image"
+msgstr ""
+
+#: plugin.py:378
+msgid "Watch HDD/SSD state"
+msgstr ""
+
+#: plugin.py:391
+msgid "Watch board temp"
+msgstr ""
+
+#: plugin.py:525
+msgid ""
+"You may not use this mode!\n"
+"Not found an internal hard drive!"
+msgstr ""
+
+#: plugin.py:582
+msgid "hddtemp -all"
+msgstr ""
+
+#: plugin.py:582
+msgid "hddtemp -all and wake up"
+msgstr ""
+
+#: plugin.py:878
+msgid "temp: "
+msgstr ""
+
+#: plugin.py:872
+msgid "unknown\n"
+msgstr ""
