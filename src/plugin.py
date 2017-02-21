@@ -796,11 +796,6 @@ class FanManager():
 
 	def applySettings(self, mode, speed):
 		try:
-			if fan_mode is "" and MODEL_NAME == "osmega":
-				if mode == "on":
-					mode = 1
-				elif mode == "off":
-					mode = 0
 			file = open("/proc/stb/fp/fan", "w")
 			file.write('%s' % mode)
 			file.close()
@@ -944,7 +939,7 @@ def openSetup(menuid, **kwargs):
 	return []
 
 def Plugins(**kwargs):
-	if fan_mode != None:
+	if fan_mode:
 		lst = [PluginDescriptor(name = "Extra fan control", where = PluginDescriptor.WHERE_MENU, needsRestart = True, fnc = openSetup),
 			PluginDescriptor(where = [PluginDescriptor.WHERE_SESSIONSTART, PluginDescriptor.WHERE_AUTOSTART], fnc = startupwatcher)]
 		if config.plugins.extrafancontrol.menuhdd.value:
