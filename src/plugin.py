@@ -209,7 +209,7 @@ config.plugins.extrafancontrol.syswatch = ConfigSelection(choices = boardwatchli
 tempwatcher = None
 fanmanager = None
 
-plugin_version = "2.4"
+plugin_version = "2.5"
 
 FULLHD = False
 if getDesktop(0).size().width() >= 1920:
@@ -444,7 +444,6 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 		list.append(self.cfg_interval)
 		if self.internal_hdd and self.FAN.menuhdd.value:
 			list.append(self.cfg_interval_tempwatcher)
-		
 		if not os.path.exists("/usr/sbin/hddtemp"):
 			list.append(getConfigListEntry(_("HDDtemp not installed!"), self.FAN.warning))
 			self.FAN.menuhdd.value = False
@@ -487,6 +486,8 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 		self.keyGreen()
 
 	def keyGreen(self):
+		if MODEL_NAME == "osmega" and not os.path.exists("/etc/rc0.d/K99stop_fan"):
+			os.system("echo -e '#!/bin/sh\n\n\necho off > /proc/stb/fp/fan\n\nexit 0' > /etc/rc0.d/K99stop_fan && chmod 755 /etc/r0.d/K99stop_fan")
 		timehddsleep = config.usage.hdd_standby.value
 		timeset = config.plugins.extrafancontrol.timeset.value
 		mode = config.plugins.extrafancontrol.mode.value
