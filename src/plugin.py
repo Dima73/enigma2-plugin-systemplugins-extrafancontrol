@@ -185,7 +185,7 @@ config.plugins.extrafancontrol.alt_timeend = ConfigClock(default=((7 * 60 + 0) *
 config.plugins.extrafancontrol.hddwatch = ConfigSelection(choices=hddwatchlist, default="none")
 config.plugins.extrafancontrol.hdddevice = ConfigText(default="all")
 config.plugins.extrafancontrol.hddsleep = ConfigYesNo(default=False)
-config.plugins.extrafancontrol.hddtemp = ConfigInteger(0, limits=(0,80))
+config.plugins.extrafancontrol.hddtemp = ConfigInteger(0, limits=(0, 80))
 config.plugins.extrafancontrol.interval = ConfigSelection(choices=intervallist, default="120")
 config.plugins.extrafancontrol.interval_tempwatcher = ConfigSelection(choices=[("30", "30"), ("45", "45")] + intervallist, default="60")
 config.plugins.extrafancontrol.menuhdd = ConfigYesNo(default=False)
@@ -201,8 +201,8 @@ config.plugins.extrafancontrol.altfanspeed = ConfigSlider(default=127, increment
 config.plugins.extrafancontrol.standbyfanspeed = ConfigSlider(default=127, increment=8, limits=(0, 255))
 config.plugins.extrafancontrol.timeset = ConfigSelection(choices=timsetlist, default="none")
 config.plugins.extrafancontrol.usealtfanspeed = ConfigYesNo(default=False)
-config.plugins.extrafancontrol.systemtemp = ConfigInteger(0, limits=(0,80))
-config.plugins.extrafancontrol.cputemp = ConfigInteger(0, limits=(0,120))
+config.plugins.extrafancontrol.systemtemp = ConfigInteger(0, limits=(0, 80))
+config.plugins.extrafancontrol.cputemp = ConfigInteger(0, limits=(0, 120))
 config.plugins.extrafancontrol.speedstandby = ConfigSelection(choices=standbylist, default="equal")
 config.plugins.extrafancontrol.syswatch = ConfigSelection(choices=boardwatchlist, default="none")
 
@@ -364,7 +364,7 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 	def initConfig(self):
 		def getPrevValues(section):
 			res = {}
-			for (key,val) in section.content.items.items():
+			for (key, val) in section.content.items.items():
 				if isinstance(val, ConfigSubsection):
 					res[key] = getPrevValues(val)
 				else:
@@ -476,7 +476,7 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 
 	def keyRed(self):
 		def setPrevValues(section, values):
-			for (key,val) in section.content.items.items():
+			for (key, val) in section.content.items.items():
 				value = values.get(key, None)
 				if value is not None:
 					if isinstance(val, ConfigSubsection):
