@@ -349,7 +349,7 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 		self.tempTimer.start(10000, True)
 
 	def getHddList(self):
-		hddlist = { }
+		hddlist = {}
 		self.internal_hdd = False
 		for hdd in harddiskmanager.HDDList():
 			if "pci" in hdd[1].phys_path or "ahci" in hdd[1].phys_path or "sata" in hdd[1].phys_path:
@@ -363,7 +363,7 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 
 	def initConfig(self):
 		def getPrevValues(section):
-			res = { }
+			res = {}
 			for (key,val) in section.content.items.items():
 				if isinstance(val, ConfigSubsection):
 					res[key] = getPrevValues(val)
@@ -692,7 +692,7 @@ class FanManager():
 		elif mode == "off" and hddwatch != "none":
 			hddcount = harddiskmanager.HDDCount()
 			if hddcount:
-				hddlist = [ ]
+				hddlist = []
 				hdd_device = FanConf.hdddevice.value
 				for hdd in harddiskmanager.HDDList():
 					if "pci" in hdd[1].phys_path or "ahci" in hdd[1].phys_path or "sata" in hdd[1].phys_path:

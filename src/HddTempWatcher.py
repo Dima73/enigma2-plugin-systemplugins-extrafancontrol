@@ -21,7 +21,7 @@ class HddTempWatcher:
 	ENAVAIL  = -252
 
 	def __init__(self, host="127.0.0.1", port=7634, devices="all", updatetime=60):
-		self.hddlist = { }
+		self.hddlist = {}
 		self.timer = eTimer()
 		self.timer.callback.append(self.__updateHddTempData)
 		if self.reloadHddTemp(host, port, devices, updatetime, False):
@@ -109,7 +109,7 @@ class HddTempWatcher:
 
 	def getHddTempData(self):
 		data = ""
-		hddlist = { }
+		hddlist = {}
 		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		try:
 			s.connect((self.__host, self.__port))
