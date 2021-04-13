@@ -414,7 +414,7 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 			if self.FAN.timeset.value != "none":
 				list.append(getConfigListEntry(_("Start time"), self.FAN.timestartoff))
 				list.append(getConfigListEntry(_("End time"), self.FAN.timeendoff))
-				if self.fanspeedcontrol  is not None and self.FAN.timeset.value != "off":
+				if self.fanspeedcontrol is not None and self.FAN.timeset.value != "off":
 					list.append(self.cfg_usealtfanspeed)
 					if self.FAN.usealtfanspeed.value:
 						list.append(self.cfg_altfanspeed)
@@ -661,7 +661,7 @@ class FanManager():
 			altspeed = False
 			ts = localtime()
 			nowsec = (ts.tm_hour * 3600) + (ts.tm_min * 60)
-			offlist= FanConf.timestartoff.value
+			offlist = FanConf.timestartoff.value
 			offsec = (offlist[0] * 3600) + (offlist[1] * 60)
 			onlist = FanConf.timeendoff.value
 			onsec = (onlist[0] * 3600) + (onlist[1] * 60)
@@ -759,7 +759,7 @@ class FanManager():
 		if FanConf.usealttime.value and set_altspeed:
 			ts = localtime()
 			nowsec = (ts.tm_hour * 3600) + (ts.tm_min * 60)
-			offlist= FanConf.alt_timestart.value
+			offlist = FanConf.alt_timestart.value
 			offsec = (offlist[0] * 3600) + (offlist[1] * 60)
 			onlist = FanConf.alt_timeend.value
 			onsec = (onlist[0] * 3600) + (onlist[1] * 60)
@@ -881,7 +881,7 @@ def getHDDTempInfo(all=False):
 	elif message == "" and internal:
 		message = _("ERROR\n") + add_message
 	elif message != "":
-		message = _("Found internal HDD/SSD!\n")  + "\n" + message
+		message = _("Found internal HDD/SSD!\n") + "\n" + message
 	if all and system_temp:
 		temp = getSystemTemp()
 		if temp is not None:

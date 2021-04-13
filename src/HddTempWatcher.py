@@ -14,11 +14,11 @@ import socket
 plugin_hddtemp_db = "/usr/lib/enigma2/python/Plugins/SystemPlugins/ExtraFanControl/hddtemp.db"
 
 class HddTempWatcher:
-	BUFSIZE  = 1024
+	BUFSIZE = 1024
 	EUNKNOWN = -255
-	EERROR   = -254
-	ESLEEP   = -253
-	ENAVAIL  = -252
+	EERROR = -254
+	ESLEEP = -253
+	ENAVAIL = -252
 
 	def __init__(self, host="127.0.0.1", port=7634, devices="all", updatetime=60):
 		self.hddlist = {}
@@ -87,7 +87,7 @@ class HddTempWatcher:
 		if not os.path.exists("/usr/share/misc/hddtemp.db"):
 			return None
 		if hddlist:
-			cmd = 'hddtemp -d -l %s -p %d -s "|" -u "C" %s'%(self.__host, self.__port, hddlist)
+			cmd = 'hddtemp -d -l %s -p %d -s "|" -u "C" %s' % (self.__host, self.__port, hddlist)
 			ret = os.system(cmd)
 			if ret == 0:
 				return True
@@ -99,7 +99,7 @@ class HddTempWatcher:
 	def isRemovableDevice(self, device):
 		removable = False
 		try:
-			fd = open('/sys/block/%s/removable'%(device), 'r')
+			fd = open('/sys/block/%s/removable' % (device), 'r')
 			data = fd.read().strip()
 			fd.close()
 			removable = bool(int(data))
