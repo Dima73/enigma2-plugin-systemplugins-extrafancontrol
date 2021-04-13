@@ -115,7 +115,8 @@ class HddTempWatcher:
 			s.connect((self.__host, self.__port))
 			while True:
 				buf = s.recv(self.BUFSIZE)
-				if not len(buf): break
+				if not len(buf):
+					break
 				data += buf
 		except socket.error, e:
 			print "[HddTempWatcher]: %s - %s:%d" % (e, self.__host, self.__port)

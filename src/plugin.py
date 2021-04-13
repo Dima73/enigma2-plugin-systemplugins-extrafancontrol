@@ -454,7 +454,8 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 
 	def newConfig(self):
 		cur = self["config"].getCurrent()
-		if cur is None: return
+		if cur is None:
+			return
 		if cur in (self.cfg_mode, self.cfg_timeset, self.cfg_hddwatch, self.cfg_syswatch, self.cfg_usealtfanspeed, self.cfg_usealttime, self.cfg_speedstandby, self.cfg_menuhdd):
 			if cur == self.cfg_syswatch and self.FAN.syswatch.value != "none":
 				self.FAN.hddwatch.value = "none"
@@ -603,7 +604,8 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 
 	def getCurrentEntry(self):
 		sel = self["config"].getCurrent()
-		if sel is None: return ""
+		if sel is None:
+			return ""
 		if sel in (self.cfg_altfanspeed, self.cfg_fanspeed, self.cfg_standbyfanspeed):
 			return len(sel) > 0 and (str(sel[1].getText()) + _(" pwm")) or ""
 		else:
@@ -611,7 +613,8 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 
 	def getCurrentValue(self):
 		sel = self["config"].getCurrent()
-		if sel is None: return ""
+		if sel is None:
+			return ""
 		return len(sel) > 0 and str(sel[1].getText()) or ""
 
 	def createSummary(self):
@@ -803,7 +806,8 @@ class FanManager():
 		except:
 			pass
 		try:
-			if speed > 255: return
+			if speed > 255:
+				return
 			file = open("/proc/stb/fp/fan_pwm", "w")
 			file.write(hex(speed)[2:])
 			file.close()
