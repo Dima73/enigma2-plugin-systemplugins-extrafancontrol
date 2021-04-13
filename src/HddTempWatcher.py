@@ -122,7 +122,7 @@ class HddTempWatcher:
 		except socket.error, e:
 			print "[HddTempWatcher]: %s - %s:%d" % (e, self.__host, self.__port)
 		s.close()
-		
+
 		if len(data):
 			if data[0] == "|":
 				data = data[1:]

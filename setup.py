@@ -12,4 +12,3 @@ setup(name='enigma2-plugin-systemplugins-extrafancontrol',
 		description='Extra Fan Control - using CPU/HDD/SSD temp',
 		cmdclass=setup_translate.cmdclass,
 	)
-

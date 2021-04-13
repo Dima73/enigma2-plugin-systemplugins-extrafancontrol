@@ -44,7 +44,7 @@ def _(txt):
 # 6 - on hdd temperature set ON
 # 7 - on system temperature set ON
 # 8 - on cpu silicon temperature set ON
-# 9 - fan speed if available OFF|ON 
+# 9 - fan speed if available OFF|ON
 # 10 - alternative fan speed if available OFF|ON
 # 11 - fan speed in standby if available OFF|ON
 #
@@ -179,10 +179,10 @@ try:
 except:
 	config.plugins.extrafancontrol.mode = ConfigSelection(choices=modelist, default="on")
 config.plugins.extrafancontrol.timeset = ConfigSelection(choices=timsetlist, default="none")
-config.plugins.extrafancontrol.timestartoff = ConfigClock(default=((21 * 60 + 30) * 60)) 
+config.plugins.extrafancontrol.timestartoff = ConfigClock(default=((21 * 60 + 30) * 60))
 config.plugins.extrafancontrol.timeendoff = ConfigClock(default=((7 * 60 + 0) * 60))
 config.plugins.extrafancontrol.usealttime = ConfigYesNo(default=False)
-config.plugins.extrafancontrol.alt_timestart = ConfigClock(default=((21 * 60 + 30) * 60)) 
+config.plugins.extrafancontrol.alt_timestart = ConfigClock(default=((21 * 60 + 30) * 60))
 config.plugins.extrafancontrol.alt_timeend = ConfigClock(default=((7 * 60 + 0) * 60))
 config.plugins.extrafancontrol.hddwatch = ConfigSelection(choices=hddwatchlist, default="none")
 config.plugins.extrafancontrol.hdddevice = ConfigText(default="all")
@@ -244,9 +244,9 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 			<screen position="center,center" size="565,490" >
 				<ePixmap name="red" position="0,0" zPosition="2" size="140,40" pixmap="skin_default/buttons/red.png" transparent="1" alphatest="on" />
 				<ePixmap name="green" position="140,0" zPosition="2" size="140,40" pixmap="skin_default/buttons/green.png" transparent="1" alphatest="on" />
-				<ePixmap name="yellow" position="280,0" zPosition="2" size="140,40" pixmap="skin_default/buttons/yellow.png" transparent="1" alphatest="on" /> 
-				<widget name="key_red" position="0,0" size="140,40" valign="center" halign="center" zPosition="4" foregroundColor="white" font="Regular;17" transparent="1" shadowColor="background" shadowOffset="-2,-2" /> 
-				<widget name="key_green" position="140,0" size="140,40" valign="center" halign="center" zPosition="4" foregroundColor="white" font="Regular;17" transparent="1" shadowColor="background" shadowOffset="-2,-2" /> 
+				<ePixmap name="yellow" position="280,0" zPosition="2" size="140,40" pixmap="skin_default/buttons/yellow.png" transparent="1" alphatest="on" />
+				<widget name="key_red" position="0,0" size="140,40" valign="center" halign="center" zPosition="4" foregroundColor="white" font="Regular;17" transparent="1" shadowColor="background" shadowOffset="-2,-2" />
+				<widget name="key_green" position="140,0" size="140,40" valign="center" halign="center" zPosition="4" foregroundColor="white" font="Regular;17" transparent="1" shadowColor="background" shadowOffset="-2,-2" />
 				<widget name="key_yellow" position="280,0" size="138,38" valign="center" halign="center" zPosition="4" foregroundColor="white" font="Regular;17" transparent="1" shadowColor="background" shadowOffset="-2,-2" />
 				<widget name="config" position="0,45" size="565,328" />
 				<ePixmap pixmap="skin_default/div-h.png" position="0,375" zPosition="1" size="565,2" />
@@ -292,7 +292,7 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 		self["daemon0"].hide()
 		self["daemon1"] = Pixmap()
 		self["daemon1"].hide()
-		self["actions"] = ActionMap(["SetupActions", "ColorActions"], 
+		self["actions"] = ActionMap(["SetupActions", "ColorActions"],
 		{
 			"ok": self.keyOk,
 			"cancel": self.keyRed,
@@ -362,7 +362,7 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 				if name in ("", "-?-"):
 					name = devdir
 				hddlist[devdir] = name
-				self.internal_hdd = True 
+				self.internal_hdd = True
 		return hddlist
 
 	def initConfig(self):
@@ -652,7 +652,7 @@ class FanManager():
 	def timerPoll(self):
 		FanConf = config.plugins.extrafancontrol
 		self.polltime = int(FanConf.interval.value)
-		timeout = self.polltime 
+		timeout = self.polltime
 		speed = FanConf.fanspeed.value
 		is_standby_box = Standby.inStandby is not None
 		standbyspeed = FanConf.speedstandby.value == "other" and is_standby_box
@@ -749,7 +749,7 @@ class FanManager():
 					if temp >= FanConf.systemtemp.value:
 						mode = "on"
 						set_altspeed = True
-						# adjust speed: 
+						# adjust speed:
 						# - use initial speed when current sys temp > user specified value
 						# - increase speed til max. Max is reached when current sys temp = 2 * user specified value
 						#speed = min(FanConf.fanspeed.value + (255 - FanConf.fanspeed.value) * ((temp / FanConf.systemtemp.value) - 1), 255)
