@@ -13,6 +13,7 @@ import socket
 
 plugin_hddtemp_db = "/usr/lib/enigma2/python/Plugins/SystemPlugins/ExtraFanControl/hddtemp.db"
 
+
 class HddTempWatcher:
 	BUFSIZE = 1024
 	EUNKNOWN = -255

@@ -28,6 +28,7 @@ gettext.bindtextdomain("enigma2", resolveFilename(SCOPE_LANGUAGE))
 gettext.textdomain("enigma2")
 gettext.bindtextdomain("ExtraFanControl", "%s%s" % (resolveFilename(SCOPE_PLUGINS), "SystemPlugins/ExtraFanControl/locale/"))
 
+
 def _(txt):
 	t = gettext.dgettext("ExtraFanControl", txt)
 	if t == txt:
@@ -68,6 +69,7 @@ def _(txt):
 # 6.1. Start time: HH:MM
 # 6.1. End time: HH:MM
 # 6.2. Speed if available 0-255 pm
+
 
 try:
 	fd = open('/proc/stb/fp/fan', 'r')
@@ -215,6 +217,7 @@ FULLHD = False
 if getDesktop(0).size().width() >= 1920:
 	FULLHD = True
 
+
 class ExtraFanControlScreen(Screen, ConfigListScreen):
 	if FULLHD:
 		skin = """
@@ -263,6 +266,7 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 				</widget>
 			</screen>
 		"""
+
 	def __init__(self, session, args=None):
 		self.skin = ExtraFanControlScreen.skin
 		self.setup_title = _("Extra fan control") + _(" - version: ") + plugin_version
@@ -582,6 +586,7 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 	def keyYellow(self):
 		if self.internal_hdd:
 			menu = [(_("Use 'HddTempWatcher'"), "watcher"), (_("hddtemp -all"), "all"), (_("hddtemp -all and wake up"), "wakeup")]
+
 			def hddAction(choice):
 				if choice is not None:
 					if choice[1] == "watcher":
@@ -620,6 +625,7 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 	def createSummary(self):
 		from Screens.Setup import SetupSummary
 		return SetupSummary
+
 
 class FanManager():
 	def __init__(self, session):
@@ -814,6 +820,7 @@ class FanManager():
 		except:
 			pass
 
+
 def getSystemTemp():
 	try:
 		temp = None
@@ -829,6 +836,7 @@ def getSystemTemp():
 	except:
 		return None
 
+
 def getCPUtemp():
 	try:
 		fd = open('/proc/stb/fp/temp_sensor_avs', 'r')
@@ -838,6 +846,7 @@ def getCPUtemp():
 	except:
 		return None
 
+
 def getPWM():
 	try:
 		f = open("/proc/stb/fp/fan_pwm", "r")
@@ -846,6 +855,7 @@ def getPWM():
 		return value
 	except:
 		return None
+
 
 def getHDDTempInfo(all=False):
 	if not os.path.exists("/usr/sbin/hddtemp"):
@@ -892,6 +902,7 @@ def getHDDTempInfo(all=False):
 			message += _("\nCPU temperature: ") + str(cputemp) + str('\xc2\xb0') + ' C'
 	return message, MessageBox.TYPE_INFO
 
+
 def isSleepStateDevice(device):
 	ret = os.popen("hdparm -C %s" % device).read()
 	if 'SG_IO' in ret or 'HDIO_DRIVE_CMD' in ret:
@@ -902,9 +913,11 @@ def isSleepStateDevice(device):
 		return False
 	return None
 
+
 def show_temp(session, **kwargs):
 	message, type = getHDDTempInfo(True)
 	session.open(MessageBox, message, type=type)
+
 
 def show_temp_simple(session, wakeup=False, **kwargs):
 	if not os.path.exists("/usr/sbin/hddtemp"):
@@ -926,8 +939,10 @@ def show_temp_simple(session, wakeup=False, **kwargs):
 	else:
 		session.open(MessageBox, _("Not found an internal HDD/SSD!\n\n"), type=MessageBox.TYPE_INFO, timeout=5)
 
+
 def main(session, **kwargs):
 	session.open(ExtraFanControlScreen)
+
 
 def startupwatcher(reason, **kwargs):
 	if reason == 0 and "session" in kwargs:
@@ -938,10 +953,12 @@ def startupwatcher(reason, **kwargs):
 		if fanmanager is None and session:
 			fanmanager = FanManager(session)
 
+
 def openSetup(menuid, **kwargs):
 	if menuid == "system":
 		return [(_("Extra fan control"), main, "extrafansetup_config", 70)]
 	return []
+
 
 def Plugins(**kwargs):
 	if fan_mode:
