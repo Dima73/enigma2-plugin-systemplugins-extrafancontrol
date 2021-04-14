@@ -28,6 +28,7 @@ gettext.bindtextdomain("enigma2", resolveFilename(SCOPE_LANGUAGE))
 gettext.textdomain("enigma2")
 gettext.bindtextdomain("ExtraFanControl", "%s%s" % (resolveFilename(SCOPE_PLUGINS), "SystemPlugins/ExtraFanControl/locale/"))
 
+
 def _(txt):
 	t = gettext.dgettext("ExtraFanControl", txt)
 	if t == txt:
@@ -43,7 +44,7 @@ def _(txt):
 # 6 - on hdd temperature set ON
 # 7 - on system temperature set ON
 # 8 - on cpu silicon temperature set ON
-# 9 - fan speed if available OFF|ON 
+# 9 - fan speed if available OFF|ON
 # 10 - alternative fan speed if available OFF|ON
 # 11 - fan speed in standby if available OFF|ON
 #
@@ -68,6 +69,7 @@ def _(txt):
 # 6.1. Start time: HH:MM
 # 6.1. End time: HH:MM
 # 6.2. Speed if available 0-255 pm
+
 
 try:
 	fd = open('/proc/stb/fp/fan', 'r')
@@ -175,21 +177,21 @@ try:
 	config.plugins.extrafancontrol.mode = config.usage.fan
 	config.plugins.extrafancontrol.mode.setChoices(modelist)
 except:
-	config.plugins.extrafancontrol.mode = ConfigSelection(choices = modelist, default = "on")
-config.plugins.extrafancontrol.timeset = ConfigSelection(choices = timsetlist, default = "none")
-config.plugins.extrafancontrol.timestartoff = ConfigClock(default = ((21 * 60 + 30) * 60)) 
-config.plugins.extrafancontrol.timeendoff = ConfigClock(default = ((7 * 60 + 0) * 60))
-config.plugins.extrafancontrol.usealttime = ConfigYesNo(default = False)
-config.plugins.extrafancontrol.alt_timestart = ConfigClock(default = ((21 * 60 + 30) * 60)) 
-config.plugins.extrafancontrol.alt_timeend = ConfigClock(default = ((7 * 60 + 0) * 60))
-config.plugins.extrafancontrol.hddwatch = ConfigSelection(choices = hddwatchlist, default = "none")
-config.plugins.extrafancontrol.hdddevice = ConfigText(default = "all")
-config.plugins.extrafancontrol.hddsleep = ConfigYesNo(default = False)
-config.plugins.extrafancontrol.hddtemp = ConfigInteger(0, limits = (0,80))
-config.plugins.extrafancontrol.interval = ConfigSelection(choices = intervallist, default = "120")
-config.plugins.extrafancontrol.interval_tempwatcher = ConfigSelection(choices = [("30", "30"), ("45", "45")] + intervallist, default = "60")
-config.plugins.extrafancontrol.menuhdd = ConfigYesNo(default = False)
-config.plugins.extrafancontrol.alt_auto = ConfigYesNo(default = default_auto)
+	config.plugins.extrafancontrol.mode = ConfigSelection(choices=modelist, default="on")
+config.plugins.extrafancontrol.timeset = ConfigSelection(choices=timsetlist, default="none")
+config.plugins.extrafancontrol.timestartoff = ConfigClock(default=((21 * 60 + 30) * 60))
+config.plugins.extrafancontrol.timeendoff = ConfigClock(default=((7 * 60 + 0) * 60))
+config.plugins.extrafancontrol.usealttime = ConfigYesNo(default=False)
+config.plugins.extrafancontrol.alt_timestart = ConfigClock(default=((21 * 60 + 30) * 60))
+config.plugins.extrafancontrol.alt_timeend = ConfigClock(default=((7 * 60 + 0) * 60))
+config.plugins.extrafancontrol.hddwatch = ConfigSelection(choices=hddwatchlist, default="none")
+config.plugins.extrafancontrol.hdddevice = ConfigText(default="all")
+config.plugins.extrafancontrol.hddsleep = ConfigYesNo(default=False)
+config.plugins.extrafancontrol.hddtemp = ConfigInteger(0, limits=(0, 80))
+config.plugins.extrafancontrol.interval = ConfigSelection(choices=intervallist, default="120")
+config.plugins.extrafancontrol.interval_tempwatcher = ConfigSelection(choices=[("30", "30"), ("45", "45")] + intervallist, default="60")
+config.plugins.extrafancontrol.menuhdd = ConfigYesNo(default=False)
+config.plugins.extrafancontrol.alt_auto = ConfigYesNo(default=default_auto)
 config.plugins.extrafancontrol.warning = NoSave(ConfigNothing())
 try:
 	config.plugins.extrafancontrol.fanspeed = config.usage.fanspeed
@@ -199,12 +201,12 @@ except:
 	config.plugins.extrafancontrol.fanspeed = ConfigSlider(default=127, increment=8, limits=(0, 255))
 config.plugins.extrafancontrol.altfanspeed = ConfigSlider(default=127, increment=8, limits=(0, 255))
 config.plugins.extrafancontrol.standbyfanspeed = ConfigSlider(default=127, increment=8, limits=(0, 255))
-config.plugins.extrafancontrol.timeset = ConfigSelection(choices = timsetlist, default = "none")
-config.plugins.extrafancontrol.usealtfanspeed = ConfigYesNo(default = False)
-config.plugins.extrafancontrol.systemtemp = ConfigInteger(0, limits = (0,80))
-config.plugins.extrafancontrol.cputemp = ConfigInteger(0, limits = (0,120))
-config.plugins.extrafancontrol.speedstandby = ConfigSelection(choices = standbylist, default = "equal")
-config.plugins.extrafancontrol.syswatch = ConfigSelection(choices = boardwatchlist, default = "none")
+config.plugins.extrafancontrol.timeset = ConfigSelection(choices=timsetlist, default="none")
+config.plugins.extrafancontrol.usealtfanspeed = ConfigYesNo(default=False)
+config.plugins.extrafancontrol.systemtemp = ConfigInteger(0, limits=(0, 80))
+config.plugins.extrafancontrol.cputemp = ConfigInteger(0, limits=(0, 120))
+config.plugins.extrafancontrol.speedstandby = ConfigSelection(choices=standbylist, default="equal")
+config.plugins.extrafancontrol.syswatch = ConfigSelection(choices=boardwatchlist, default="none")
 
 tempwatcher = None
 fanmanager = None
@@ -214,6 +216,7 @@ plugin_version = "2.5"
 FULLHD = False
 if getDesktop(0).size().width() >= 1920:
 	FULLHD = True
+
 
 class ExtraFanControlScreen(Screen, ConfigListScreen):
 	if FULLHD:
@@ -241,9 +244,9 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 			<screen position="center,center" size="565,490" >
 				<ePixmap name="red" position="0,0" zPosition="2" size="140,40" pixmap="skin_default/buttons/red.png" transparent="1" alphatest="on" />
 				<ePixmap name="green" position="140,0" zPosition="2" size="140,40" pixmap="skin_default/buttons/green.png" transparent="1" alphatest="on" />
-				<ePixmap name="yellow" position="280,0" zPosition="2" size="140,40" pixmap="skin_default/buttons/yellow.png" transparent="1" alphatest="on" /> 
-				<widget name="key_red" position="0,0" size="140,40" valign="center" halign="center" zPosition="4" foregroundColor="white" font="Regular;17" transparent="1" shadowColor="background" shadowOffset="-2,-2" /> 
-				<widget name="key_green" position="140,0" size="140,40" valign="center" halign="center" zPosition="4" foregroundColor="white" font="Regular;17" transparent="1" shadowColor="background" shadowOffset="-2,-2" /> 
+				<ePixmap name="yellow" position="280,0" zPosition="2" size="140,40" pixmap="skin_default/buttons/yellow.png" transparent="1" alphatest="on" />
+				<widget name="key_red" position="0,0" size="140,40" valign="center" halign="center" zPosition="4" foregroundColor="white" font="Regular;17" transparent="1" shadowColor="background" shadowOffset="-2,-2" />
+				<widget name="key_green" position="140,0" size="140,40" valign="center" halign="center" zPosition="4" foregroundColor="white" font="Regular;17" transparent="1" shadowColor="background" shadowOffset="-2,-2" />
 				<widget name="key_yellow" position="280,0" size="138,38" valign="center" halign="center" zPosition="4" foregroundColor="white" font="Regular;17" transparent="1" shadowColor="background" shadowOffset="-2,-2" />
 				<widget name="config" position="0,45" size="565,328" />
 				<ePixmap pixmap="skin_default/div-h.png" position="0,375" zPosition="1" size="565,2" />
@@ -263,7 +266,8 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 				</widget>
 			</screen>
 		"""
-	def __init__(self, session, args = None):
+
+	def __init__(self, session, args=None):
 		self.skin = ExtraFanControlScreen.skin
 		self.setup_title = _("Extra fan control") + _(" - version: ") + plugin_version
 		self.powerTimer = eTimer()
@@ -288,14 +292,14 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 		self["daemon0"].hide()
 		self["daemon1"] = Pixmap()
 		self["daemon1"].hide()
-		self["actions"] = ActionMap(["SetupActions", "ColorActions"], 
+		self["actions"] = ActionMap(["SetupActions", "ColorActions"],
 		{
 			"ok": self.keyOk,
 			"cancel": self.keyRed,
 			"green": self.keyGreen,
 			"yellow": self.keyYellow,
 		}, -2)
-		ConfigListScreen.__init__(self, [], on_change = self.changedEntry)
+		ConfigListScreen.__init__(self, [], on_change=self.changedEntry)
 		self.prev_menuhdd = config.plugins.extrafancontrol.menuhdd.value
 		self.prev_interval_tempwatcher = config.plugins.extrafancontrol.interval_tempwatcher.value
 		self.initConfig()
@@ -349,7 +353,7 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 		self.tempTimer.start(10000, True)
 
 	def getHddList(self):
-		hddlist = { }
+		hddlist = {}
 		self.internal_hdd = False
 		for hdd in harddiskmanager.HDDList():
 			if "pci" in hdd[1].phys_path or "ahci" in hdd[1].phys_path or "sata" in hdd[1].phys_path:
@@ -358,13 +362,13 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 				if name in ("", "-?-"):
 					name = devdir
 				hddlist[devdir] = name
-				self.internal_hdd = True 
+				self.internal_hdd = True
 		return hddlist
 
 	def initConfig(self):
 		def getPrevValues(section):
-			res = { }
-			for (key,val) in section.content.items.items():
+			res = {}
+			for (key, val) in section.content.items.items():
 				if isinstance(val, ConfigSubsection):
 					res[key] = getPrevValues(val)
 				else:
@@ -386,7 +390,7 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 			self["key_yellow"].setText(_("HDD/SSD temperature"))
 		hddlist["all"] = _("All")
 		default = not hddlist.has_key(self.FAN.hdddevice.value) and "all" or self.FAN.hdddevice.value
-		self.hddlistsel = NoSave(ConfigSelection(choices = hddlist, default = default))
+		self.hddlistsel = NoSave(ConfigSelection(choices=hddlist, default=default))
 		self.cfg_hdddevice = getConfigListEntry(_("Select internal HDD/SSD device"), self.hddlistsel)
 		self.cfg_syswatch = getConfigListEntry(_("Watch board temp"), self.FAN.syswatch)
 		self.cfg_fanspeed = getConfigListEntry(_("Fan speed"), self.FAN.fanspeed)
@@ -414,7 +418,7 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 			if self.FAN.timeset.value != "none":
 				list.append(getConfigListEntry(_("Start time"), self.FAN.timestartoff))
 				list.append(getConfigListEntry(_("End time"), self.FAN.timeendoff))
-				if self.fanspeedcontrol  is not None and self.FAN.timeset.value != "off":
+				if self.fanspeedcontrol is not None and self.FAN.timeset.value != "off":
 					list.append(self.cfg_usealtfanspeed)
 					if self.FAN.usealtfanspeed.value:
 						list.append(self.cfg_altfanspeed)
@@ -454,7 +458,8 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 
 	def newConfig(self):
 		cur = self["config"].getCurrent()
-		if cur is None: return
+		if cur is None:
+			return
 		if cur in (self.cfg_mode, self.cfg_timeset, self.cfg_hddwatch, self.cfg_syswatch, self.cfg_usealtfanspeed, self.cfg_usealttime, self.cfg_speedstandby, self.cfg_menuhdd):
 			if cur == self.cfg_syswatch and self.FAN.syswatch.value != "none":
 				self.FAN.hddwatch.value = "none"
@@ -475,7 +480,7 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 
 	def keyRed(self):
 		def setPrevValues(section, values):
-			for (key,val) in section.content.items.items():
+			for (key, val) in section.content.items.items():
 				value = values.get(key, None)
 				if value is not None:
 					if isinstance(val, ConfigSubsection):
@@ -523,19 +528,19 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 			self.FAN.usealttime.value = False
 		if mode == "off" and self.FAN.hddwatch.value != "none":
 			if not self.internal_hdd:
-				self.session.open(MessageBox, _("You may not use this mode!\nNot found an internal hard drive!"), MessageBox.TYPE_INFO, timeout = 5)
+				self.session.open(MessageBox, _("You may not use this mode!\nNot found an internal hard drive!"), MessageBox.TYPE_INFO, timeout=5)
 				self.FAN.hddwatch.value = "none"
 				self.FAN.hddsleep.value = False
 				self.FAN.hddtemp.value = 0
 				self.createSetup()
 				return
 		if self.FAN.timeset.value != "none" and self.FAN.timestartoff.value == self.FAN.timeendoff.value:
-			self.session.open(MessageBox, _("Start time equal end time.\nYou may not use this time settings!"), MessageBox.TYPE_INFO, timeout = 5)
+			self.session.open(MessageBox, _("Start time equal end time.\nYou may not use this time settings!"), MessageBox.TYPE_INFO, timeout=5)
 			self.FAN.timeset.value = "none"
 			self.createSetup()
 			return
 		if self.FAN.hddwatch.value == "sleep" and timehddsleep == "0" and self.FAN.hddsleep.value:
-			self.session.open(MessageBox, _("Harddisk setup 'Standby after' disabled\nYou may not use this mode!"), MessageBox.TYPE_INFO, timeout = 5)
+			self.session.open(MessageBox, _("Harddisk setup 'Standby after' disabled\nYou may not use this mode!"), MessageBox.TYPE_INFO, timeout=5)
 			self.FAN.hddwatch.value = "none"
 			self.FAN.hddsleep.value = False
 			self.FAN.hddtemp.value = 0
@@ -543,7 +548,7 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 			return
 		if self.fanspeedcontrol is not None and (self.FAN.syswatch.value != "none" or self.FAN.hddwatch.value != "none") and self.FAN.usealttime.value:
 			if self.FAN.alt_timestart.value == self.FAN.alt_timeend.value:
-				self.session.open(MessageBox, _("Start time equal end time.\nYou may not use this time settings!"), MessageBox.TYPE_INFO, timeout = 5)
+				self.session.open(MessageBox, _("Start time equal end time.\nYou may not use this time settings!"), MessageBox.TYPE_INFO, timeout=5)
 				self.FAN.usealttime.value = False
 				self.createSetup()
 				return
@@ -581,6 +586,7 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 	def keyYellow(self):
 		if self.internal_hdd:
 			menu = [(_("Use 'HddTempWatcher'"), "watcher"), (_("hddtemp -all"), "all"), (_("hddtemp -all and wake up"), "wakeup")]
+
 			def hddAction(choice):
 				if choice is not None:
 					if choice[1] == "watcher":
@@ -603,7 +609,8 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 
 	def getCurrentEntry(self):
 		sel = self["config"].getCurrent()
-		if sel is None: return ""
+		if sel is None:
+			return ""
 		if sel in (self.cfg_altfanspeed, self.cfg_fanspeed, self.cfg_standbyfanspeed):
 			return len(sel) > 0 and (str(sel[1].getText()) + _(" pwm")) or ""
 		else:
@@ -611,12 +618,14 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 
 	def getCurrentValue(self):
 		sel = self["config"].getCurrent()
-		if sel is None: return ""
+		if sel is None:
+			return ""
 		return len(sel) > 0 and str(sel[1].getText()) or ""
 
 	def createSummary(self):
 		from Screens.Setup import SetupSummary
 		return SetupSummary
+
 
 class FanManager():
 	def __init__(self, session):
@@ -643,7 +652,7 @@ class FanManager():
 	def timerPoll(self):
 		FanConf = config.plugins.extrafancontrol
 		self.polltime = int(FanConf.interval.value)
-		timeout = self.polltime 
+		timeout = self.polltime
 		speed = FanConf.fanspeed.value
 		is_standby_box = Standby.inStandby is not None
 		standbyspeed = FanConf.speedstandby.value == "other" and is_standby_box
@@ -658,7 +667,7 @@ class FanManager():
 			altspeed = False
 			ts = localtime()
 			nowsec = (ts.tm_hour * 3600) + (ts.tm_min * 60)
-			offlist= FanConf.timestartoff.value
+			offlist = FanConf.timestartoff.value
 			offsec = (offlist[0] * 3600) + (offlist[1] * 60)
 			onlist = FanConf.timeendoff.value
 			onsec = (onlist[0] * 3600) + (onlist[1] * 60)
@@ -689,7 +698,7 @@ class FanManager():
 		elif mode == "off" and hddwatch != "none":
 			hddcount = harddiskmanager.HDDCount()
 			if hddcount:
-				hddlist = [ ]
+				hddlist = []
 				hdd_device = FanConf.hdddevice.value
 				for hdd in harddiskmanager.HDDList():
 					if "pci" in hdd[1].phys_path or "ahci" in hdd[1].phys_path or "sata" in hdd[1].phys_path:
@@ -740,7 +749,7 @@ class FanManager():
 					if temp >= FanConf.systemtemp.value:
 						mode = "on"
 						set_altspeed = True
-						# adjust speed: 
+						# adjust speed:
 						# - use initial speed when current sys temp > user specified value
 						# - increase speed til max. Max is reached when current sys temp = 2 * user specified value
 						#speed = min(FanConf.fanspeed.value + (255 - FanConf.fanspeed.value) * ((temp / FanConf.systemtemp.value) - 1), 255)
@@ -756,7 +765,7 @@ class FanManager():
 		if FanConf.usealttime.value and set_altspeed:
 			ts = localtime()
 			nowsec = (ts.tm_hour * 3600) + (ts.tm_min * 60)
-			offlist= FanConf.alt_timestart.value
+			offlist = FanConf.alt_timestart.value
 			offsec = (offlist[0] * 3600) + (offlist[1] * 60)
 			onlist = FanConf.alt_timeend.value
 			onsec = (onlist[0] * 3600) + (onlist[1] * 60)
@@ -803,12 +812,14 @@ class FanManager():
 		except:
 			pass
 		try:
-			if speed > 255: return
+			if speed > 255:
+				return
 			file = open("/proc/stb/fp/fan_pwm", "w")
 			file.write(hex(speed)[2:])
 			file.close()
 		except:
 			pass
+
 
 def getSystemTemp():
 	try:
@@ -825,6 +836,7 @@ def getSystemTemp():
 	except:
 		return None
 
+
 def getCPUtemp():
 	try:
 		fd = open('/proc/stb/fp/temp_sensor_avs', 'r')
@@ -834,6 +846,7 @@ def getCPUtemp():
 	except:
 		return None
 
+
 def getPWM():
 	try:
 		f = open("/proc/stb/fp/fan_pwm", "r")
@@ -842,6 +855,7 @@ def getPWM():
 		return value
 	except:
 		return None
+
 
 def getHDDTempInfo(all=False):
 	if not os.path.exists("/usr/sbin/hddtemp"):
@@ -877,7 +891,7 @@ def getHDDTempInfo(all=False):
 	elif message == "" and internal:
 		message = _("ERROR\n") + add_message
 	elif message != "":
-		message = _("Found internal HDD/SSD!\n")  + "\n" + message
+		message = _("Found internal HDD/SSD!\n") + "\n" + message
 	if all and system_temp:
 		temp = getSystemTemp()
 		if temp is not None:
@@ -887,6 +901,7 @@ def getHDDTempInfo(all=False):
 		if cputemp is not None:
 			message += _("\nCPU temperature: ") + str(cputemp) + str('\xc2\xb0') + ' C'
 	return message, MessageBox.TYPE_INFO
+
 
 def isSleepStateDevice(device):
 	ret = os.popen("hdparm -C %s" % device).read()
@@ -898,13 +913,15 @@ def isSleepStateDevice(device):
 		return False
 	return None
 
+
 def show_temp(session, **kwargs):
 	message, type = getHDDTempInfo(True)
 	session.open(MessageBox, message, type=type)
 
+
 def show_temp_simple(session, wakeup=False, **kwargs):
 	if not os.path.exists("/usr/sbin/hddtemp"):
-		session.open(MessageBox, _("HDDtemp not installed!"), type=MessageBox.TYPE_ERROR, timeout = 5)
+		session.open(MessageBox, _("HDDtemp not installed!"), type=MessageBox.TYPE_ERROR, timeout=5)
 		return
 	internal_hddlist = []
 	ret = ""
@@ -920,10 +937,12 @@ def show_temp_simple(session, wakeup=False, **kwargs):
 		message = _("Found internal HDD/SSD!\n") + "\n" + ret
 		session.open(MessageBox, message, type=MessageBox.TYPE_INFO)
 	else:
-		session.open(MessageBox, _("Not found an internal HDD/SSD!\n\n"), type=MessageBox.TYPE_INFO, timeout = 5)
+		session.open(MessageBox, _("Not found an internal HDD/SSD!\n\n"), type=MessageBox.TYPE_INFO, timeout=5)
+
 
 def main(session, **kwargs):
 	session.open(ExtraFanControlScreen)
+
 
 def startupwatcher(reason, **kwargs):
 	if reason == 0 and "session" in kwargs:
@@ -934,18 +953,20 @@ def startupwatcher(reason, **kwargs):
 		if fanmanager is None and session:
 			fanmanager = FanManager(session)
 
+
 def openSetup(menuid, **kwargs):
 	if menuid == "system":
 		return [(_("Extra fan control"), main, "extrafansetup_config", 70)]
 	return []
 
+
 def Plugins(**kwargs):
 	if fan_mode:
-		lst = [PluginDescriptor(name = "Extra fan control", where = PluginDescriptor.WHERE_MENU, needsRestart = True, fnc = openSetup),
-			PluginDescriptor(where = [PluginDescriptor.WHERE_SESSIONSTART, PluginDescriptor.WHERE_AUTOSTART], fnc = startupwatcher)]
+		lst = [PluginDescriptor(name="Extra fan control", where=PluginDescriptor.WHERE_MENU, needsRestart=True, fnc=openSetup),
+			PluginDescriptor(where=[PluginDescriptor.WHERE_SESSIONSTART, PluginDescriptor.WHERE_AUTOSTART], fnc=startupwatcher)]
 		if config.plugins.extrafancontrol.menuhdd.value:
-			lst.append(PluginDescriptor(name = _("Show HDD/SSD temp"), where = [PluginDescriptor.WHERE_EXTENSIONSMENU], fnc = show_temp))
+			lst.append(PluginDescriptor(name=_("Show HDD/SSD temp"), where=[PluginDescriptor.WHERE_EXTENSIONSMENU], fnc=show_temp))
 		return lst
 	else:
-		return [PluginDescriptor(name = _("Show HDD/SSD temp"), where = [PluginDescriptor.WHERE_EXTENSIONSMENU], fnc = show_temp_simple)]
+		return [PluginDescriptor(name=_("Show HDD/SSD temp"), where=[PluginDescriptor.WHERE_EXTENSIONSMENU], fnc=show_temp_simple)]
 	return []
