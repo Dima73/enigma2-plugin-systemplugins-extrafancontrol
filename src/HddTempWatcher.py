@@ -105,7 +105,7 @@ class HddTempWatcher:
 			fd.close()
 			removable = bool(int(data))
 		except:
-			print "[HddTempWatcher]: read removable state for device '%s' is failed" % (device)
+			print("[HddTempWatcher]: read removable state for device '%s' is failed" % (device))
 		return removable
 
 	def getHddTempData(self):
@@ -119,8 +119,8 @@ class HddTempWatcher:
 				if not len(buf):
 					break
 				data += buf
-		except socket.error, e:
-			print "[HddTempWatcher]: %s - %s:%d" % (e, self.__host, self.__port)
+		except socket.error as e:
+			print("[HddTempWatcher]: %s - %s:%d" % (e, self.__host, self.__port))
 		s.close()
 
 		if len(data):
