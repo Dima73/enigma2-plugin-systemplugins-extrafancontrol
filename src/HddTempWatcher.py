@@ -1,3 +1,4 @@
+from __future__ import print_function
 #
 # HddTempWatcher module for Enigma2 (HddTempWatcher.py)
 # Based on hddtemp utils, so require install on system it
