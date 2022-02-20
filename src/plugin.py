@@ -389,7 +389,7 @@ class ExtraFanControlScreen(Screen, ConfigListScreen):
 		else:
 			self["key_yellow"].setText(_("HDD/SSD temperature"))
 		hddlist["all"] = _("All")
-		default = not hddlist.has_key(self.FAN.hdddevice.value) and "all" or self.FAN.hdddevice.value
+		default = self.FAN.hdddevice.value not in hddlist and "all" or self.FAN.hdddevice.value
 		self.hddlistsel = NoSave(ConfigSelection(choices=hddlist, default=default))
 		self.cfg_hdddevice = getConfigListEntry(_("Select internal HDD/SSD device"), self.hddlistsel)
 		self.cfg_syswatch = getConfigListEntry(_("Watch board temp"), self.FAN.syswatch)
