@@ -20,7 +20,7 @@ try:
 	device_name = HardwareInfo().get_device_name()
 except:
 	device_name = None
-from HddTempWatcher import HddTempWatcher
+from .HddTempWatcher import HddTempWatcher
 
 lang = language.getLanguage()
 os.environ["LANGUAGE"] = lang[:2]
